@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Hourly Rate Calculator"
+config/version="1.0.0.0"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/image="res://icon.png"
+config/icon="res://icon.svg"
+config/windows_native_icon="res://icon.ico"
+
+[display]
+
+window/size/viewport_width=500
+window/size/viewport_height=700
+window/size/resizable=false
+window/energy_saving/keep_screen_on=false
+window/dpi/allow_hidpi=false
+window/handheld/orientation=1
+window/ios/allow_high_refresh_rate=false
+window/ios/hide_home_indicator=false
+window/ios/hide_status_bar=false
+window/ios/suppress_ui_gesture=false
+
+[editor]
+
+import/use_multiple_threads=false
+
+[filesystem]
+
+import/blender/enabled=false
+
+[rendering]
+
+occlusion_culling/bvh_build_quality=0
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+textures/default_filters/anisotropic_filtering_level=0
+occlusion_culling/occlusion_rays_per_thread=0

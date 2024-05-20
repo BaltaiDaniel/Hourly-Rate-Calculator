@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjyo3qu5pm08f"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_m8sp6"]
+[ext_resource type="FontFile" uid="uid://dmqbgb2jxrrvt" path="res://arial.ttf" id="1_yti0y"]
+[ext_resource type="FontFile" uid="uid://dexls7madk7v8" path="res://arialbd.ttf" id="3_5ullt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rbqk"]
+content_margin_left = 20.0
+content_margin_top = 30.0
+content_margin_right = 20.0
+content_margin_bottom = 30.0
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.490196, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2l1qq"]
+content_margin_left = 20.0
+content_margin_top = 30.0
+content_margin_right = 20.0
+content_margin_bottom = 30.0
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_tt3eu"]
+default_font = ExtResource("1_yti0y")
+default_font_size = 24
+LineEdit/styles/focus = SubResource("StyleBoxFlat_1rbqk")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_2l1qq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chbkp"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5bqd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dlhw"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pp6qa"]
+content_margin_left = 10.0
+content_margin_top = 20.0
+content_margin_right = 10.0
+content_margin_bottom = 20.0
+
+[sub_resource type="Theme" id="Theme_o2opl"]
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_pp6qa")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_pp6qa")
+
+[node name="Main" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_tt3eu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_chbkp")
+script = ExtResource("1_m8sp6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w5bqd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="__" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5ullt")
+theme_override_font_sizes/font_size = 24
+text = "My hourly rate"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(0.345098, 0.345098, 0.345098, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5dlhw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Currency" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "$"
+
+[node name="HourlyRateEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_o2opl")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="__" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5ullt")
+theme_override_font_sizes/font_size = 24
+text = "Work hours per day"
+
+[node name="WHPD" type="SpinBox" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+max_value = 24.0
+update_on_text_changed = true
+suffix = "hours"
+select_all_on_focus = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w5bqd")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PerDay" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5ullt")
+text = "$0 per day"
+
+[node name="PerWeek" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5ullt")
+text = "$0 per week"
+
+[node name="PerMonth" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5ullt")
+text = "$0 per month"
+
+[node name="PerYear" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5ullt")
+text = "$0 per year"
+
+[connection signal="focus_entered" from="VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/HourlyRateEdit" to="." method="_on_hourly_rate_edit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/HourlyRateEdit" to="." method="_on_hourly_rate_edit_focus_exited"]
+[connection signal="text_changed" from="VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/HourlyRateEdit" to="." method="_on_hourly_rate_edit_text_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/WHPD" to="." method="_on_whpd_value_changed"]
