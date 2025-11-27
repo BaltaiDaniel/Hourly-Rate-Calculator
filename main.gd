@@ -2,6 +2,7 @@ extends PanelContainer
 
 var hourly_rate = 0
 var hours_per_day = 0
+var my_var
 
 func _process(delta):
 	if $VBoxContainer/VBoxContainer2/WHPD.value == 1:		# If work hours per day > 1, show "hour"
